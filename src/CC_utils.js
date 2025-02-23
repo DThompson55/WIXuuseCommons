@@ -7,8 +7,8 @@ var theRoute = [];
 //
 function startingContentWrapper(path,limit=12){
   iteratePath(path);
-  console.log("The Discovered Route =",theRoute.join(", "));
-  console.log("                      ",longString.slice(0,((limit-1)*3)-1),"^");
+  // console.log("The Discovered Route =",theRoute.join(", "));
+  // console.log("                      ",longString.slice(0,((limit-1)*3)-1),"^");
   theRoute.slice(0, limit).forEach(i => {
     path = path.childNodes[i];
   })

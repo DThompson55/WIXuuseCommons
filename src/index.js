@@ -6,15 +6,15 @@ const {listEmails, getGMail } = require('./gmail_3.js');
 const {authorize, google } = require('./google-stuff.js');
 const {getArticlesFromHTML, htmlToRichContent, getAllArticles, getRCParagraph, getRCText} = require('./htmlToRichContent.js');
 const {redactions} = require('./redact.js');
-const {richContentToText,getGeneratedDescriptionFromArticle, getLongDescriptionFromArticle, getTextFromArticle, newEvent} = require('./RichContentUtils.js');
+const {getGeneratedDescriptionFromArticle, getLongDescriptionFromArticle, getTextFromArticle, newEvent} = require('./RichContentUtils.js');
 const {headers, getSecret} = require('./secrets.js');
 const {cleanTitle, normalizeTitle} = require('./TitleUtils.js');
-const {argv, getOrdinalSuffix, formatDate, generateRandomId, month, date, capture, doNotUpdate, eBlastCMS, repeatersCMS, happeningsCMS, newsLetterCMS} = require('./utils.js');
+const {argv, getOrdinalSuffix, formatDate, generateRandomId, month, date, ISOdate, capture, doNotUpdate, eBlastCMS, repeatersCMS, happeningsCMS, newsLetterCMS, clone, pretty, stop} = require('./utils.js');
 
 console.log("uuseCommons");
 
 module.exports = {append1, append2, append3, append4, argv, authorize, bulkDelete, bulkInsert, 
-bulkUpdate, capture, cleanTitle, date, divider, doNotUpdate, eBlastCMS,
+bulkUpdate, capture, cleanTitle, date, ISOdate, divider, doNotUpdate, eBlastCMS,
 extractFutureDate, 
 fetchAllRecords, fetchRecords, findStartingContent, formatDate, 
 generateRandomId, getAllArticles, getArticlesFromHTML, getAxiosTemplate, 
@@ -23,6 +23,6 @@ getLongDescriptionFromArticle, getNextSunday, getOrdinalSuffix,
 getRCParagraph, getRCText, getRepeaters, getSecret, getTextFromArticle, 
 google, happeningsCMS, headers, htmlToRichContent, listEmails, month, 
 newEvent, newsLetterCMS, normalizeTitle, redactions, repeatersCMS, replace, 
-richContentToText, updateMenu}
+updateMenu, clone, pretty, stop}
 
 

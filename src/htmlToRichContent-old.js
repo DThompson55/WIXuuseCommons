@@ -15,15 +15,14 @@ const tagTable = {
 'H1':H1_func, 'H2':H2_func, 'H3':H3_func, 'H4':H4_func, 
 'H5':H5_func, 'H6':H6_func, 'HR':BR_func, 'IMG':IMG_func, 
 'LI':LI_func, 'OL':OL_func, 'P':P_func, 'SPAN':SPAN_func, 
-'STRONG':STRONG_func, 'SUP':SUP_func, 'TABLE':TABLE_func,
-'TBODY':TBODY_func, 'EM':STRONG_func, 
+'STRONG':STRONG_func, 'SUP':SPAN_func, 'TABLE':TABLE_func,
+'TBODY':SPAN_func, 'EM':STRONG_func, 
 'TD':TD_func, 'text':text_func, 'TR':TR_func, 'UL':UL_func}
 
 function htmlToRichContent(path, content, layer=0, parentStyle={}){  
   if (path.nodeType == 3) path.tagName = "text";
   let style = { ...parentStyle, ...path.attributes,...((path.attributes?.style)?parseStyleString(path.attributes.style ):{}) };
   //console.log(layer+1,style.bold)
-  //console.log(layer+1,"dispatch",path.tagName)
   if (tagTable[path.tagName])
     tagTable[path.tagName](path, content, layer+1, style)
   else {    
@@ -40,10 +39,7 @@ function getRCParagraph(){
   }
 }
 
-
 function P_func(path, content, layer, style){//path, content, layer, style, redact){
-//  console.log("\n"+layer,"paragraph",path.nodeType,path.tagName);
-
   const align = (style?.textAlign || "AUTO").toUpperCase();
   const paragraph = {
     type:"PARAGRAPH",
@@ -114,19 +110,18 @@ function A_func(path, content, layer, style){
     // Anchors are supposed to have some subordinate text, so let's look for that
     // we need to recurse down a level to find it.
     //
-    let count = 1;
     path.childNodes.forEach((node)=>{
       htmlToRichContent(node, content, layer, style);     
     })
+//    console.log("A tag content",content);
     try {
     const r = content[content.length-1].textData.decorations; // this gets the decorations of that text
       r.push({type:"LINK",linkData:{link:{url:path.attributes.href, target:"BLANK"}}});
       r.push({type:"COLOR",colorData:{foreground:"#0000FF"}});
       r.push({type:"UNDERLINE",underlineData:true})
     } catch (error){
-        console.log("A_Func Error, no internal text?",error.message);
-        // stop();
-        // console.log("Ignore A tag, link is",path.attributes.href);
+//        console.log(error,params.content[params.content.length-1])
+        console.log("Ignore A tag, link is",path.attributes.href);
     }
 }
 
@@ -143,20 +138,15 @@ function getRCText(text=""){
 
 
 function text_func(path, content, layer, style){
-  // passthrough(path, content, layer, style);
-  // return;
 //  console.log("TEXT PARAMS",params.style)
   let text = path.text;
   let preText = path.text;
   text = redactions(text,redact);
 
-// allow all empty and whitespace text through the machine
 
-  // if (content.length==0) {//dtt 
-  // if (/^\s*$/.test(text)) {
-  //   console.log(layer,'empty text');
-  //   return; // whitespace or empty?
-  // }}
+//  if (content.length==0)
+  if (/^\s*$/.test(text)) return; // whitespace or empty?
+
   // if (/^\s*$/.test(text)){
   //   console.log("Space",content);
   // }
@@ -171,6 +161,8 @@ function text_func(path, content, layer, style){
     }       
   }
   decorate(style,contentItem.textData.decorations,text);
+//  contentItem.textData.decorations.forEach((decoration)=>{console.log("decoration",decoration)})
+//if (/^\s*$/.test(text))     
   content.push(contentItem);//2
 }
 
@@ -184,6 +176,7 @@ function H5_func(path, content, layer, style){H_func(path, content, layer, style
 function H6_func(path, content, layer, style){H_func(path, content, layer, style, 6)} 
 
 function H_func(path, content, layer, style, strength){ 
+
   let text = path.text;
   text = redactions(text,redact);
   const align = (style?.textAlign || "CENTER").toUpperCase();
@@ -203,17 +196,10 @@ function list_functions(path, content, layer, style, type){
   path.childNodes.forEach((node)=>{
     htmlToRichContent(node, list.nodes, layer, style, node)
   })
-
-  const filteredList = list.nodes.filter(item => !(item.type === "TEXT" && item.textData?.text === " "));
-  list.nodes = filteredList;
   content.push(list);
 }
 function UL_func(path, content, layer, style){
-//  const x = [];
   list_functions(path, content, layer, style,"BULLETED_LIST")
-  // console.log(pretty(x));
-  // stop();
-
 }
 function OL_func(path, content, layer, style){
   list_functions(path, content, layer, style,"ORDERED_LIST")
@@ -222,14 +208,10 @@ function LI_func(path, content, layer, style){
   list_functions(path, content, layer, style,"LIST_ITEM")
 }
 
-var dtt=0;
-
 function passthrough(path, content, layer, style){
-//    console.log(layer,"passthrough",path.nodeType,path.tagName);
     path.childNodes.forEach((node)=>{
-        htmlToRichContent(node, content, layer, style);     
-    })
-
+    htmlToRichContent(node, content, layer, style);     
+  })
 }
 
 function BR_func(path, content, layer, style){
@@ -250,22 +232,9 @@ function TD_func(path, content, layer, style){
 }
 
 function SPAN_func(path, content, layer, style){
-//  console.log(style) // sup should process any embedded text
-  passthrough(path, content, layer, style)
-}
-
-function SUP_func(path, content, layer, style){
-console.log("SUP_func");
 //  console.log(style)
   passthrough(path, content, layer, style)
 }
-
-function TBODY_func(path, content, layer, style){
-//  console.log("TBODY_func");
-//  console.log(style)
-  passthrough(path, content, layer, style)
-}
-
 
 function DIV_func(path, content, layer, style){
   passthrough(path, content, layer, style)
@@ -338,39 +307,12 @@ function colorToHex(color) {
   return "#000000";
 }
 
-function mergeTextIntoParagraphs(list) {
-  let result = [];
-  
-  for (let i = 0; i < list.length; i++) {
-    let currentItem = list[i];
-
-    if (currentItem.type === "PARAGRAPH") {
-      // Add PARAGRAPH to result
-      result.push({ ...currentItem });
-
-      // Merge following TEXT nodes into this PARAGRAPH
-      while (list[i + 1] && list[i + 1].type === "TEXT") {
-        result[result.length - 1].nodes.push(...list[i + 1].nodes);
-        i++; // Skip the TEXT node
-      }
-    } else {
-      // Non-PARAGRAPH items are added as is
-      result.push(currentItem);
-    }
-  }
-  return content;
-//  return mergeTextIntoParagraphs(content);
-}
-
-
 function htmlToRichContentWrapper(node){
       let content = [];
       let layer = 0;
       let style = {};
       htmlToRichContent(node, content, layer, style);
-      // get rid of any 1st level TEXT, which got in through tds, trs, etc.
-      const filteredList = content.filter(item => item.type !== "TEXT");
-      return filteredList;
+      return content;
     }
 
 function isArrayEmptyOrNestedEmpty(arr) {
@@ -401,6 +343,11 @@ function getArticlesFromHTML(path){
     if (separated){
       articles.push(result);
     }
+    // if (pretty(articles).includes("tableMarker")){
+    //   console.log("dtt3",pretty(result))
+    //   console.log("dtt",pretty(articles))
+    //   stop();
+    // }
   })
   //
   //
@@ -472,6 +419,7 @@ function toCamelCase(str) {
   return str.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
 }
 
+var dtt = 0;
 function splitByTableMarker(items) {
   let result = [];
   let currentGroup = [];

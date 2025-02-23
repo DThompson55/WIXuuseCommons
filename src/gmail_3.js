@@ -9,14 +9,17 @@ const path = require('path');
  */
 async function getGMail(params, targetDate, capture, callback) {
 
+const options = { weekday: 'long' }; // Use 'short' for abbreviations (e.g., 'Fri')
+const dayName = targetDate.toLocaleDateString('en-US', options);
+
 let subject = params.subject;
 let from = params.from || "eblast@uuse.ccsend.com"
-  console.log("Looking for emails on date:", targetDate, subject, from);
+  console.log("Looking for emails on date:", dayName, targetDate, subject, from);
 
   try {
     const emails = await listEmails(targetDate, subject, from);
 
-    if (emails.messages && emails.messages.length > 1) throw new error("Too many matching emails",targetDate,subject)
+    if (emails.messages && emails.messages.length > 1) throw new Error("Too many matching emails",targetDate,subject)
 
     if (emails.messages && emails.messages.length > 0) {
       const auth = await authorize();
@@ -79,20 +82,19 @@ async function listEmails(emailSentDate, subject, from) {
   const auth = await authorize();
   const gmail = google.gmail({ version: 'v1', auth });
 
-  // Convert emailSentDate to timestamps
-  const startOfDay = Math.floor(new Date(emailSentDate).setHours(0, 0, 0, 0) / 1000);
-  const endOfDay = startOfDay + 86400; // Add 24 hours for next day
-
+  const emailDate = new Date(emailSentDate)// + "T00:00:00-05:00"); // Ensures Eastern Time
+  const startOfDay = Math.floor(emailDate.getTime() / 1000);
+  const endOfDay = startOfDay + 86400; // Add 24 hours
+  
+  // const startOfDay = Math.floor(new Date(emailSentDate).setHours(0, 0, 0, 0) / 1000);
+  // const endOfDay = startOfDay + (86400); // Add 24 hours for next day
   async function makeRequest() {
     try {
-
       console.log("SUBJECT",subject,"Day",emailSentDate,startOfDay,endOfDay)
-
       const response = await gmail.users.messages.list({
         userId: 'me',
-        q: `after:${startOfDay} before:${endOfDay} from, subject:${subject}`,
+        q: `after:${startOfDay} before:${endOfDay} subject:${subject}`,
       });
-//      console.log(response.data)
       return response.data;
     } catch (err) {
       if (err.code === 401) {

@@ -1,35 +1,35 @@
 "use strict"
-function richContentToText(rc){
-var texts = "";
-var title;
-var allTexts = "";
+// function richContentToText(rc){
+// var texts = "";
+// var title;
+// var allTexts = "";
 
-rc.forEach(node=>{
-  if (title == null){
-    title = "";
-    node.nodes.forEach(text=>{
-      title += text.textData.text;
-    })
-  } else {
-    node.nodes.forEach(text=>{
-      if (text.textData)
-      texts += text.textData.text;
-    })
-  }
-  node.nodes.forEach(text=>{
-    if (text.textData)
-    allTexts += text.textData.text;
-  })
-  texts+=" ";
-  allTexts+=" ";  
+// rc.forEach(node=>{
+//   if (title == null){
+//     title = "";
+//     node.nodes.forEach(text=>{
+//       title += text.textData.text;
+//     })
+//   } else {
+//     node.nodes.forEach(text=>{
+//       if (text.textData)
+//       texts += text.textData.text;
+//     })
+//   }
+//   node.nodes.forEach(text=>{
+//     if (text.textData)
+//     allTexts += text.textData.text;
+//   })
+//   texts+=" ";
+//   allTexts+=" ";  
 
 
-})
-const result1 = texts.replace(/  +/g, " ").trim();
-const result2 = allTexts.replace(/  +/g, " ").trim();
+// })
+// const result1 = texts.replace(/  +/g, " ").trim();
+// const result2 = allTexts.replace(/  +/g, " ").trim();
 
-return result1
-}
+// return result1
+// }
 
 function getTextFromArticle(article) {
   return article
@@ -90,7 +90,7 @@ function newEvent(mnl) {
     return retval;
 }
 
-module.exports = {richContentToText,
+module.exports = {//richContentToText,
 getGeneratedDescriptionFromArticle,
 getLongDescriptionFromArticle,
 getTextFromArticle, newEvent}

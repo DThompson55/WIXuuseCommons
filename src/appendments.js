@@ -1,7 +1,7 @@
 "use strict"
-const {month,date,yargs} = require('./utils.js');
+const {month,ISOdate,yargs} = require('./utils.js');
 
-const mm_date = date.substring(5)
+const mm_date = ISOdate.substring(5)
 
 const divider = {type:"PARAGRAPH",id:"foo",nodes:
               [{type:"TEXT",id:"",nodes:[],

@@ -108,7 +108,11 @@ const repeatersCMS  = (doNotUpdate?"Import853":"Events");
 const happeningsCMS = (doNotUpdate?"Import857":"Happenings"); // events
 const newsLetterCMS = (doNotUpdate?"Import147":"NewsLetterContents");
 
+function clone(x){return JSON.parse(JSON.stringify(x))};
+function pretty(s){return JSON.stringify(s,null,2)}
+function stop(){process.exit(0)}
+
 module.exports = {argv, 
   getOrdinalSuffix, formatDate, generateRandomId, 
-  month:argv.month, date:formatDate(argv.date), capture:argv.capture, doNotUpdate, eBlastCMS, 
-  repeatersCMS, happeningsCMS, newsLetterCMS};
+  month:argv.month, date:argv.date, ISOdate:formatDate(argv.date), capture:argv.capture, doNotUpdate, eBlastCMS, 
+  repeatersCMS, happeningsCMS, newsLetterCMS, clone, pretty, stop};

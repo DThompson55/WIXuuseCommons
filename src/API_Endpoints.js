@@ -162,7 +162,7 @@ async function fetchRecords(cms, recordType) {
 }
 
 async function replace(cms, record) {
-//  console.log("At Replace. Record is",pretty(record));
+  console.log("At Replace. Record is",pretty(record.data.title),cms);
   const options = getAxiosTemplate(cms);
   options.data.query={
     filter: {
