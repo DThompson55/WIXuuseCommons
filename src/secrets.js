@@ -1,9 +1,14 @@
 "use strict"
 // server-side Node.js
 require('dotenv').config();
-const apiKey = process.env.API_KEY;
+const apiKey    = process.env.API_KEY;
 const accountId = process.env.ACCOUNT_ID;
-const site_id = process.env.SITE_ID;
+const site_id   = process.env.SITE_ID;
+
+if (!apiKey){
+console.log(".env file not found -- Cannot load secrets");
+process.exit(0);
+}
 
 const  headers = {
   'content-type': 'application/json',

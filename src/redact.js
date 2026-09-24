@@ -1,7 +1,7 @@
 "use strict"
 const he = require('he');
 
-function redactions(text,redaction, verbose=false){
+function redactions(text, redaction=true, verbose=false){
 
   if ( verbose ) console.log("called redactions",text,redaction)
 
@@ -17,6 +17,7 @@ function redactions(text,redaction, verbose=false){
   text = text.replace(/&#xfeff;/g, ' '); // a different kind of nonbreaking space
   text = text.replace(/&#xfeff;/g, ' '); // a different kind of nonbreaking space
   text = text.replace(/\r\n/g, ' ');
+  text = text.replace(/sudha sevin/i, "Sudha");
   
 //  if (text.length == 1) console.log("Here a single character maybe",text,(text==="o"));
   if (text === "o") text = "";
@@ -57,5 +58,7 @@ var modifiedText = text.replace(zoomUsRegex, replacementUrl);
 return modifiedText
 
 }
+
+
 
 module.exports = {redactions}

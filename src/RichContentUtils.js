@@ -83,8 +83,7 @@ function newEvent(mnl) {
       longdescription: mnl.data.longdescription,
       generatedDescription: mnl.data.generatedDescription,
       isExpired: false,
-      isFeatured: false,
-      doNotShow: false
+      isFeatured: false
     }
   }
     return retval;

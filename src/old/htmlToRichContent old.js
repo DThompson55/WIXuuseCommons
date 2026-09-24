@@ -15,14 +15,15 @@ const tagTable = {
 'H1':H1_func, 'H2':H2_func, 'H3':H3_func, 'H4':H4_func, 
 'H5':H5_func, 'H6':H6_func, 'HR':BR_func, 'IMG':IMG_func, 
 'LI':LI_func, 'OL':OL_func, 'P':P_func, 'SPAN':SPAN_func, 
-'STRONG':STRONG_func, 'SUP':SPAN_func, 'TABLE':TABLE_func,
-'TBODY':SPAN_func, 'EM':STRONG_func, 
+'STRONG':STRONG_func, 'SUP':SUP_func, 'TABLE':TABLE_func,
+'TBODY':TBODY_func, 'EM':STRONG_func, 
 'TD':TD_func, 'text':text_func, 'TR':TR_func, 'UL':UL_func}
 
 function htmlToRichContent(path, content, layer=0, parentStyle={}){  
   if (path.nodeType == 3) path.tagName = "text";
   let style = { ...parentStyle, ...path.attributes,...((path.attributes?.style)?parseStyleString(path.attributes.style ):{}) };
-  //console.log(layer+1,style.bold)
+  //console.log(layer+1,style);
+  //console.log(layer+1,"dispatch",path.tagName)
   if (tagTable[path.tagName])
     tagTable[path.tagName](path, content, layer+1, style)
   else {    
@@ -39,7 +40,10 @@ function getRCParagraph(){
   }
 }
 
+
 function P_func(path, content, layer, style){//path, content, layer, style, redact){
+//  console.log("\n"+layer,"paragraph",path.nodeType,path.tagName);
+
   const align = (style?.textAlign || "AUTO").toUpperCase();
   const paragraph = {
     type:"PARAGRAPH",
@@ -110,18 +114,23 @@ function A_func(path, content, layer, style){
     // Anchors are supposed to have some subordinate text, so let's look for that
     // we need to recurse down a level to find it.
     //
+    let count = 1;
     path.childNodes.forEach((node)=>{
       htmlToRichContent(node, content, layer, style);     
     })
-//    console.log("A tag content",content);
     try {
+
+    const link = redactions(path.attributes.href, false);
+//    console.log("LINK =",link, redactions(link));
+
     const r = content[content.length-1].textData.decorations; // this gets the decorations of that text
-      r.push({type:"LINK",linkData:{link:{url:path.attributes.href, target:"BLANK"}}});
+      r.push({type:"LINK",linkData:{link:{url:link, target:"BLANK"}}});
       r.push({type:"COLOR",colorData:{foreground:"#0000FF"}});
       r.push({type:"UNDERLINE",underlineData:true})
     } catch (error){
-//        console.log(error,params.content[params.content.length-1])
-        console.log("Ignore A tag, link is",path.attributes.href);
+        console.log("A_Func Error, no internal text?",error.message);
+        // stop();
+        // console.log("Ignore A tag, link is",path.attributes.href);
     }
 }
 
@@ -138,15 +147,20 @@ function getRCText(text=""){
 
 
 function text_func(path, content, layer, style){
+  // passthrough(path, content, layer, style);
+  // return;
 //  console.log("TEXT PARAMS",params.style)
   let text = path.text;
   let preText = path.text;
   text = redactions(text,redact);
 
+// allow all empty and whitespace text through the machine
 
-//  if (content.length==0)
-  if (/^\s*$/.test(text)) return; // whitespace or empty?
-
+  // if (content.length==0) {//dtt 
+  // if (/^\s*$/.test(text)) {
+  //   console.log(layer,'empty text');
+  //   return; // whitespace or empty?
+  // }}
   // if (/^\s*$/.test(text)){
   //   console.log("Space",content);
   // }
@@ -160,9 +174,10 @@ function text_func(path, content, layer, style){
       decorations:[]
     }       
   }
+
+
   decorate(style,contentItem.textData.decorations,text);
-//  contentItem.textData.decorations.forEach((decoration)=>{console.log("decoration",decoration)})
-//if (/^\s*$/.test(text))     
+
   content.push(contentItem);//2
 }
 
@@ -176,7 +191,6 @@ function H5_func(path, content, layer, style){H_func(path, content, layer, style
 function H6_func(path, content, layer, style){H_func(path, content, layer, style, 6)} 
 
 function H_func(path, content, layer, style, strength){ 
-
   let text = path.text;
   text = redactions(text,redact);
   const align = (style?.textAlign || "CENTER").toUpperCase();
@@ -196,10 +210,17 @@ function list_functions(path, content, layer, style, type){
   path.childNodes.forEach((node)=>{
     htmlToRichContent(node, list.nodes, layer, style, node)
   })
+
+  const filteredList = list.nodes.filter(item => !(item.type === "TEXT" && item.textData?.text === " "));
+  list.nodes = filteredList;
   content.push(list);
 }
 function UL_func(path, content, layer, style){
+//  const x = [];
   list_functions(path, content, layer, style,"BULLETED_LIST")
+  // console.log(pretty(x));
+  // stop();
+
 }
 function OL_func(path, content, layer, style){
   list_functions(path, content, layer, style,"ORDERED_LIST")
@@ -208,10 +229,14 @@ function LI_func(path, content, layer, style){
   list_functions(path, content, layer, style,"LIST_ITEM")
 }
 
+var dtt=0;
+
 function passthrough(path, content, layer, style){
+//    console.log(layer,"passthrough",path.nodeType,path.tagName);
     path.childNodes.forEach((node)=>{
-    htmlToRichContent(node, content, layer, style);     
-  })
+        htmlToRichContent(node, content, layer, style);     
+    })
+
 }
 
 function BR_func(path, content, layer, style){
@@ -232,9 +257,22 @@ function TD_func(path, content, layer, style){
 }
 
 function SPAN_func(path, content, layer, style){
+//  console.log(style) // sup should process any embedded text
+  passthrough(path, content, layer, style)
+}
+
+function SUP_func(path, content, layer, style){
+console.log("SUP_func");
 //  console.log(style)
   passthrough(path, content, layer, style)
 }
+
+function TBODY_func(path, content, layer, style){
+//  console.log("TBODY_func");
+//  console.log(style)
+  passthrough(path, content, layer, style)
+}
+
 
 function DIV_func(path, content, layer, style){
   passthrough(path, content, layer, style)
@@ -242,6 +280,17 @@ function DIV_func(path, content, layer, style){
 
 
 function decorate(style,r,text=""){
+
+
+if (style.fontStyle){
+  if (style.fontStyle === "italic"){
+    r.push({ type:"ITALIC", italicData:true});
+  }
+  if (style.fontStyle !== "italic"){
+    console.log("Invalid fontStyle",style.fontStyle);
+    stop();
+  }
+}
 
 let fontWeightValue = (style.fontWeight) || 700;
 if (style.bold) fontWeightValue = 700;
@@ -259,6 +308,7 @@ const styleMappings = [
 ];
 
 styleMappings.forEach(({ key, type, value }) => {
+//  console.log("xxx",style[key],key,type,value);
   if (style[key]) {
     r.push({ type, ...value(style) });
   }
@@ -307,12 +357,39 @@ function colorToHex(color) {
   return "#000000";
 }
 
+function mergeTextIntoParagraphs(list) {
+  let result = [];
+  
+  for (let i = 0; i < list.length; i++) {
+    let currentItem = list[i];
+
+    if (currentItem.type === "PARAGRAPH") {
+      // Add PARAGRAPH to result
+      result.push({ ...currentItem });
+
+      // Merge following TEXT nodes into this PARAGRAPH
+      while (list[i + 1] && list[i + 1].type === "TEXT") {
+        result[result.length - 1].nodes.push(...list[i + 1].nodes);
+        i++; // Skip the TEXT node
+      }
+    } else {
+      // Non-PARAGRAPH items are added as is
+      result.push(currentItem);
+    }
+  }
+  return content;
+//  return mergeTextIntoParagraphs(content);
+}
+
+
 function htmlToRichContentWrapper(node){
       let content = [];
       let layer = 0;
       let style = {};
       htmlToRichContent(node, content, layer, style);
-      return content;
+      // get rid of any 1st level TEXT, which got in through tds, trs, etc.
+      const filteredList = content.filter(item => item.type !== "TEXT");
+      return filteredList;
     }
 
 function isArrayEmptyOrNestedEmpty(arr) {
@@ -343,11 +420,6 @@ function getArticlesFromHTML(path){
     if (separated){
       articles.push(result);
     }
-    // if (pretty(articles).includes("tableMarker")){
-    //   console.log("dtt3",pretty(result))
-    //   console.log("dtt",pretty(articles))
-    //   stop();
-    // }
   })
   //
   //
@@ -355,6 +427,10 @@ function getArticlesFromHTML(path){
   // the articles themselves are lists of RC components
   // Including groups of table tags
   //
+
+// console.log(JSON.stringify(articles,null, 2));
+//   process.exit(0);
+
 
   var cleanArticles = [];
   var goodArticles = [];
@@ -377,6 +453,9 @@ function getArticlesFromHTML(path){
 // At this point goodArticles is a list of separate articles 
 // each separate article is a list of RC components
 //
+
+  // console.log(goodArticles);
+  // process.exit(0);
 
   return goodArticles;
 }
@@ -406,8 +485,17 @@ function getAllArticles(groups){
 function pretty(s){return JSON.stringify(s,null,2)}
 function stop(){process.exit(0)}
 function parseStyleString(styleString) {
+  // let x = styleString
+  //     .split(";")
+  //     .map(rule => rule.split(":").map(part => part.trim()))
+  //     .filter(([key, value]) => key && value)
+  //     .map(([key, value]) => [toCamelCase(key), value])
+
+
+  // console.log("___",x.flat());
+
   return Object.fromEntries(
-    styleString
+  styleString
       .split(";")
       .map(rule => rule.split(":").map(part => part.trim()))
       .filter(([key, value]) => key && value)
@@ -419,7 +507,6 @@ function toCamelCase(str) {
   return str.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
 }
 
-var dtt = 0;
 function splitByTableMarker(items) {
   let result = [];
   let currentGroup = [];
@@ -429,6 +516,7 @@ function splitByTableMarker(items) {
       if (currentGroup.length) {
       result.push(currentGroup); // Save the previous group if not empty
       //result.push("1---------")
+      //console.log("1---------")
       }
       currentGroup = []; // Start a new group
     } //else {
@@ -438,7 +526,7 @@ function splitByTableMarker(items) {
 
   if (currentGroup.length) {
   result.push(currentGroup); // Push the last group if not empty
-  //result.push("2---------")
+  //console.log("2---------")
   }
 
   if ( result.length == 0){
@@ -453,7 +541,6 @@ function splitByTableMarker(items) {
   // stop();
   return {result,separated};
 }
-
 
 module.exports = {getArticlesFromHTML, htmlToRichContent, 
   getAllArticles, getRCParagraph, getRCText};

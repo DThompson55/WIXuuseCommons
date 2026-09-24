@@ -5,7 +5,7 @@ const {getDivider} = require('./appendments.js')
 const timestamp = new Date().toISOString();    // used in Rich Content annotations
 
 const redact=true;
-const lineHeight = "1.5";
+const lineHeight = "1.1";
 const defaultStyle = {"paddingTop":"2px","paddingBottom":"0px"};
 
 let   tableDepth = 0;
@@ -65,7 +65,7 @@ const tagTable = {
       tableMarker:true,
       tableDepth,
       id:generateRandomId(5),
-      paragraphData:{textStyle:{textAlignment:"LEFT", lineHeight}, 
+      paragraphData:{textStyle:{textAlignment:"LEFT", lineHeight:"1.0"}, 
       indentation:0},style:defaultStyle,
       nodes:[{"type": "TEXT","id": generateRandomId(5),"nodes": [],"textData": 
         {"text": "Table Marker","decorations": [{"type": "COLOR",
@@ -84,7 +84,7 @@ const tagTable = {
     const image = {
       type:"PARAGRAPH",
       id:generateRandomId(5),
-      paragraphData:{textStyle:{textAlignment:"LEFT", lineHeight},indentation:0},style:defaultStyle, 
+      paragraphData:{textStyle:{textAlignment:"LEFT", lineHeight:"1.0"},indentation:0},style:defaultStyle, 
       nodes:[{
       type:"TEXT",
       id:generateRandomId(5),
@@ -393,59 +393,28 @@ function isArrayEmptyOrNestedEmpty(arr) {
 //
 //
 function getArticlesFromHTML(path){ 
+  let consolidatedArticles = [];
   let articles = [];
   let nodeNum = 0;
   let lastNodeNum = 0;
   //
-  // groups start with a table marker
-  // articles must start with a header, possibly an image?
-  // if it doesn't start with a header, consider it part of the previous group
+  // where does the separator come in?
   //
-  let lineNum = 0;
-  let itemNum = 0;
-  let currentGroup = [];
-  let separated = true;
-  //let tableMarkerFound = false;
-  let headingFound = false;
-  let paragraphFound = false;
-
   path.childNodes.forEach(node=>{
-    if (node.nodeType==3) return;  // empty notes that I can just toss, or process and toss there
-    nodeNum++;
-    const content = htmlToRichContentWrapper(node);
-    itemNum = 0;
-    for (const item of content) {
-      lineNum++;
-      itemNum++;
-      //   if (item.tableMarker) {
-      //     paragraphFound = false;
-      //     previousHeading = false;
-      // }
-//      console.log("HEADER INFO",(item?.headingData?.level == 1),item?.headingData);
-      if (item.type === "HEADING"){
-        if (headingFound) { // previously
-          currentGroup.push(item)
-        } else {
-          if (currentGroup) articles.push(currentGroup);
-          currentGroup = [];
-          currentGroup.push(item)
-          } 
-         headingFound = true;         
-      }  
-
-      if (item.type === "PARAGRAPH"){ 
-        if (!item.tableMarker){
-          headingFound = false;
-          currentGroup.push(item)
-        }
+    if (node.nodeType!=3){ // empty notes that I can just toss, or process and toss there
+      const content = htmlToRichContentWrapper(node);
+      if (content.length == 0){ console.log("_X__ empty content"); return;} 
+      
+      let {result,separated} = splitByTableMarker(content);
+      if (separated){
+        articles.push(result);
+      } else {
+        console.log("Not separated - EXITING",JSON.stringify(result));
+        process.exit(0);
       }
-
-      // console.log(nodeNum,itemNum, lineNum,item.type,
-      //   (tableMarkerFound?"table marker":""),(headingFound?"heading found":""),(paragraphFound?"paragraph found":""));
     }
-    })
-    if (currentGroup) articles.push(currentGroup);
-  
+  })
+  //
   //
   // at this point articles is list of articles
   // the articles themselves are lists of RC components
@@ -457,19 +426,18 @@ function getArticlesFromHTML(path){
 
 
   var cleanArticles = [];
-  var goodArticles = articles;
-  // var xxx = 0;
-  // articles.forEach(bother=>{
-  //   bother.forEach(line => {
-  //     console.log(JSON.stringify(line,null,2));
-  //     const cleanList = line.filter(item => !item.tableMarker);
-  //     if (cleanList.length >0)
-  //       cleanArticles.push(cleanList);
-  //   })
-  //   if (cleanArticles.length>0)
-  //    goodArticles.push(cleanArticles)
-  //    cleanArticles = [];
-  // })
+  var goodArticles = [];
+  var xxx = 0;
+  articles.forEach(bother=>{
+    bother.forEach(line => {
+      const cleanList = line.filter(item => !item.tableMarker);
+      if (cleanList.length >0)
+        cleanArticles.push(cleanList);
+    })
+    if (cleanArticles.length>0)
+     goodArticles.push(cleanArticles)
+     cleanArticles = [];
+  })
   // if (tmpArticle.length){
   //   goodArticles.push([...tmpArticle]);
   // }
@@ -485,7 +453,27 @@ function getArticlesFromHTML(path){
   return goodArticles;
 }
 
+function getAllArticles(groups){
+//
+// ConsolidatedArticles will be one long list of RC components
+// Representing the entire newsletter, or eBlast or whatever
+//
+  // articles can get edited by some other routine
+  // so it gets built near the end with this call
+  //
+  const result = [];
+  groups.forEach(subGroup =>{
+    subGroup.forEach(item =>{
+      item.forEach(thing =>{
+      result.push(thing);
+    })
+      result.push(getDivider());
 
+    })
+  })
+
+  return result;
+}
 
 function pretty(s){return JSON.stringify(s,null,2)}
 function stop(){process.exit(0)}
@@ -576,4 +564,4 @@ function getRCTextTemplate(text=""){
 
 
 module.exports = {getArticlesFromHTML, htmlToRichContent, 
-  getRCParagraphTemplate, getRCTextTemplate};
+  getAllArticles, getRCParagraphTemplate, getRCTextTemplate};

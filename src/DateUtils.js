@@ -10,35 +10,39 @@ function extractFutureDate(str) {
     "July", "August", "September", "October", "November", "December"
   ];
 
-  const firstLine = str.split('\n')[0] || '';  // Get the first line or an empty string
-  
-  const dateRegex = new RegExp(
-      `(?:Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)?,?\\s*` +  // Optional day of the week
-      `(${monthNames.join("|")})\\s*(\\d{1,2})`,  // Month and day
-      "i"
-      );
+  const lines = str.split('\n') || '';  // Get the first line or an empty string
+  let i = 0;
+  for (i in lines){
+    const firstLine = lines[i];
 
-  const match = firstLine.match(dateRegex);
+    const dateRegex = new RegExp(
+        `(?:Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)?,?\\s*` +  // Optional day of the week
+        `(${monthNames.join("|")})\\s*(\\d{1,2})`,  // Month and day
+        "i"
+        );
 
-  if (match) {
-    const month = monthNames.findIndex(
-      m => m.toLowerCase() === match[1].toLowerCase()
-      );
-    const day = parseInt(match[2], 10);
+    const match = firstLine.match(dateRegex);
 
-    let extractedDate = new Date(currentYear, month, day);
+    if (match) {
+      const month = monthNames.findIndex(
+        m => m.toLowerCase() === match[1].toLowerCase()
+        );
+      const day = parseInt(match[2], 10);
 
-    // If the target month is within the next 6 months and we're at the end of the year
-    if (month < currentMonth - 2) {
-      extractedDate.setFullYear(currentYear + 1);
+      let extractedDate = new Date(currentYear, month, day);
+
+      // If the target month is within the next 6 months and we're at the end of the year
+      if (month < currentMonth - 2) {
+        extractedDate.setFullYear(currentYear + 1);
+      }
+
+      // If the target month is within the last 2 months and we're at the start of the year
+      if (month > currentMonth + 6) {
+        extractedDate.setFullYear(currentYear - 1);
+      }
+
+      return extractedDate;
     }
-
-    // If the target month is within the last 2 months and we're at the start of the year
-    if (month > currentMonth + 6) {
-      extractedDate.setFullYear(currentYear - 1);
-    }
-
-    return extractedDate;
   }
 } catch(err){
   console.log("String Was:"+str,"Error was:",err);
@@ -47,6 +51,7 @@ function extractFutureDate(str) {
 //  console.log("No Date Was Found");  
   return null;  // Return null if no date is found
 }
+
 
 function getNextSunday(date) {
   // Ensure the input is a Date object

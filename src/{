@@ -1,0 +1,424 @@
+{
+  "nodes": [
+    {
+      "textDate": "February 1st",
+      "paragraphData": {
+        "textStyle": {
+          "textAlignment": "LEFT",
+          "lineHeight": "1.1"
+        },
+        "indentation": 0
+      },
+      "style": {
+        "paddingTop": "2px",
+        "paddingBottom": "0px"
+      },
+      "extractedDate": "2026-02-01T05:00:00.000Z",
+      "id": "UEbWV",
+      "date": "2026-02-01",
+      "nodes": [
+        {
+          "type": "TEXT",
+          "id": "8PpQ9",
+          "nodes": [],
+          "textData": {
+            "text": "Sunday, February 1st: ",
+            "decorations": [
+              {
+                "type": "BOLD",
+                "fontWeightValue": 700
+              },
+              {
+                "type": "COLOR",
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "TEXT",
+          "id": "bO5tI",
+          "nodes": [],
+          "textData": {
+            "text": "The \"Nature\" of Resilience. ",
+            "decorations": [
+              {
+                "type": "ITALIC",
+                "italicData": true
+              },
+              {
+                "type": "BOLD",
+                "fontWeightValue": 700
+              },
+              {
+                "type": "COLOR",
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "TEXT",
+          "id": "YGxb7",
+          "nodes": [],
+          "textData": {
+            "text": "As the light returns and the natural world begins to stir, we reflect on nature's many lessons in resilience. Coordinators: Paula Baker and Stacey Musulin.",
+            "decorations": [
+              {
+                "type": "COLOR",
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": "The \"Nature\" of Resilience.",
+      "type": "PARAGRAPH"
+    },
+    {
+      "textDate": "February 8th",
+      "paragraphData": {
+        "textStyle": {
+          "textAlignment": "LEFT",
+          "lineHeight": "1.1"
+        },
+        "indentation": 0
+      },
+      "style": {
+        "paddingTop": "2px",
+        "paddingBottom": "0px"
+      },
+      "extractedDate": "2026-02-08T05:00:00.000Z",
+      "id": "F38cC",
+      "date": "2026-02-08",
+      "nodes": [
+        {
+          "type": "TEXT",
+          "id": "MvFn5",
+          "nodes": [],
+          "textData": {
+            "text": "Sunday, February 8th: ",
+            "decorations": [
+              {
+                "type": "BOLD",
+                "fontWeightValue": 700
+              },
+              {
+                "type": "COLOR",
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "TEXT",
+          "id": "5283J",
+          "nodes": [],
+          "textData": {
+            "text": "What Makes You Come Alive.",
+            "decorations": [
+              {
+                "type": "ITALIC",
+                "italicData": true
+              },
+              {
+                "type": "BOLD",
+                "fontWeightValue": 700
+              },
+              {
+                "type": "COLOR",dtt
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "TEXT",
+          "id": "4UN4j",
+          "nodes": [],
+          "textData": {
+            "text": " Rev. Josh draws on insights from the 20th-century Christian mystic, Howard Thurman, to reflect on our monthly ministry theme of resilience. In challenging times, what are our sources of resilience? Coordinator: Rev. Josh Pawelek. ",
+            "decorations": [
+              {
+                "type": "COLOR", dtt2
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": "What Makes You Come Alive.",
+      "type": "PARAGRAPH"
+    },
+    {
+      "textDate": "February 15th",
+      "paragraphData": {
+        "textStyle": {
+          "textAlignment": "LEFT",
+          "lineHeight": "1.1"
+        },
+        "indentation": 0
+      },
+      "style": {
+        "paddingTop": "2px",
+        "paddingBottom": "0px"
+      },
+      "extractedDate": "2026-02-15T05:00:00.000Z",
+      "id": "VJKfr",
+      "date": "2026-02-15",
+      "nodes": [
+        {
+          "type": "TEXT",
+          "id": "y1a9K",
+          "nodes": [],
+          "textData": {
+            "text": "Sunday, February 15th: ",
+            "decorations": [
+              {
+                "type": "BOLD",
+                "fontWeightValue": 700
+              },
+              {
+                "type": "COLOR", dtt3
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "TEXT",
+          "id": "0QHX8",
+          "nodes": [],
+          "textData": {
+            "text": "Strategic Planning: A Discipline of Resilience.",
+            "decorations": [
+              {
+                "type": "ITALIC",
+                "italicData": true
+              },
+              {
+                "type": "BOLD",
+                "fontWeightValue": 700
+              },
+              {
+                "type": "COLOR", dtt4
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "TEXT",
+          "id": "bcTXy",
+          "nodes": [],
+          "textData": {
+            "text": " Hear and be heard to form our UUSE vision, mission, and planning statements. Coordinator: Kate Kimmerle.",
+            "decorations": [
+              {
+                "type": "COLOR",
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": "Strategic Planning: A Discipline of Resilience.",
+      "type": "PARAGRAPH"
+    },
+    {
+      "textDate": "February 22nd",
+      "paragraphData": {
+        "textStyle": {
+          "textAlignment": "LEFT",
+          "lineHeight": "1.1"
+        },
+        "indentation": 0
+      },
+      "style": {
+        "paddingTop": "2px",
+        "paddingBottom": "0px"
+      },
+      "extractedDate": "2026-02-22T05:00:00.000Z",
+      "id": "em9DI",
+      "date": "2026-02-22",
+      "nodes": [
+        {
+          "type": "TEXT",
+          "id": "DCmVK",
+          "nodes": [],
+          "textData": {
+            "text": "Sunday, February 22nd: ",
+            "decorations": [
+              {
+                "type": "BOLD",
+                "fontWeightValue": 700
+              },
+              {
+                "type": "COLOR",
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "TEXT",
+          "id": "xKeQi",
+          "nodes": [],
+          "textData": {
+            "text": "The Fires of Generosity. ",
+            "decorations": [
+              {
+                "type": "ITALIC",
+                "italicData": true
+              },
+              {
+                "type": "BOLD",
+                "fontWeightValue": 700
+              },
+              {
+                "type": "COLOR",
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "TEXT",
+          "id": "dzigN",
+          "nodes": [],
+          "textData": {
+            "text": "As we approach our 2026 Annual Appeal, Rev. Josh explores the many ways we manifest generosity and why it matters that we continually cultivate generous spirits. Kate Kimmerle purchased this service at the 2025 UUSE Goods and Services Auction. Coordinator: Rev. Josh Pawelek. ",
+            "decorations": [
+              {
+                "type": "COLOR",
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": "The Fires of Generosity.",
+      "type": "PARAGRAPH"
+    },
+    {
+      "textDate": "March 1st",
+      "paragraphData": {
+        "textStyle": {
+          "textAlignment": "LEFT",
+          "lineHeight": "1.1"
+        },
+        "indentation": 0
+      },
+      "style": {
+        "paddingTop": "2px",
+        "paddingBottom": "0px"
+      },
+      "extractedDate": "2026-03-01T05:00:00.000Z",
+      "id": "ow8yM",
+      "date": "2026-03-01",
+      "nodes": [
+        {
+          "type": "TEXT",
+          "id": "BqqfH",
+          "nodes": [],
+          "textData": {
+            "text": "Sunday, March 1st: ",
+            "decorations": [
+              {
+                "type": "BOLD",
+                "fontWeightValue": 700
+              },
+              {
+                "type": "COLOR",
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "TEXT",
+          "id": "9bmea",
+          "nodes": [],
+          "textData": {
+            "text": "Belonging and Thriving -- Together! ",
+            "decorations": [
+              {
+                "type": "ITALIC",
+                "italicData": true
+              },
+              {
+                "type": "BOLD",
+                "fontWeightValue": 700
+              },
+              {
+                "type": "COLOR",
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "TEXT",
+          "id": "PdWEe",
+          "nodes": [],
+          "textData": {
+            "text": " This morning we launch our 2026 Annual Appeal. Rev. Josh will discuss the goals for this year’s appeal. What needs are we trying to meet? What programs are we hoping to grow? What vision are we trying to fulfill? Coordinator: Rev. Josh Pawelek. ",
+            "decorations": [
+              {
+                "type": "COLOR",
+                "colorData": {
+                  "background": "transparent",
+                  "foreground": "#3e3e3e"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": "Belonging and Thriving -- Together!",
+      "type": "PARAGRAPH"
+    }
+  ]
+}

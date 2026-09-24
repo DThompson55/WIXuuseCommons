@@ -1,11 +1,6 @@
 "use strict"
 const axios = require('axios')
 const {headers} = require('./secrets.js');
-const {repeatersCMS, 
-       happeningsCMS,
-       newsLetterCMS } = require('./utils.js');
-
-
 
 async function fetchAllRecords(options) {
     let allRecords = [];
@@ -13,14 +8,16 @@ async function fetchAllRecords(options) {
     var hasNext = false;
     if ( !options.data.query )
         options.data.query = {};
-
     do {
+
         if (hasNext) {
-            options.data.query.cursorPaging = { limit: 50, cursor };
+            options.data.query.cursorPaging = { limit: 100, cursor };
             delete options.data.query.paging;
         } else {
-            options.data.query.paging = { limit: 50 };
+            options.data.query.paging = { limit: 100 };
         }
+//        console.log('options:', JSON.stringify(options.data,null,2));
+
         const response = await axios(options);
         const dataItems = response.data.dataItems;
         cursor = response.data.pagingMetadata.cursors.next;
@@ -111,7 +108,7 @@ async function bulkInsert(cms,content){
     .then(results=>{
       console.log("Bulk Inserts requested:",cms,results.data.bulkActionMetadata)
     })
-    .catch(err=>{console.log(err.response)})
+    .catch(err=>{console.log("Bulk Insert Failed");console.log(err.response)})
 }
 
 async function bulkUpdate(cms,content){
@@ -128,37 +125,41 @@ async function bulkUpdate(cms,content){
     .then(results=>{
       console.log("Bulk Updates requested:",cms,results.data.bulkActionMetadata)
     })
-    .catch(err=>{console.log(err.response.status,err.response.statusText)})
+    .catch(err=>{console.log("Bulk Update Failed");console.log(err)})
 }
 
 //
 //
 async function bulkDelete(cms){
-  console.log("Bulk Deletes requested:",cms)
   const options = getAxiosTemplate(cms);
   fetchAllRecords(options)
-  .catch (error =>{console.log(error)})
+  .catch (error =>{console.log("Bulk Delete Failed");console.log(error)})
   .then(records =>{
     const dataItemIds = records.map(item => item.data._id);
+    console.log(`Bulk Delete requested:${cms}, ${dataItemIds.length} records found`);
+    if (dataItemIds.length){
     const options = {...getAxiosTemplate(cms),
       url: '/bulk/items/remove'};
       options.data = {...options.data,dataItemIds};
-      console.log("there were "+dataItemIds.length+" old",cms,"records")
+      console.log("there were "+dataItemIds.length+" old",cms,"records bulk deleted")
       return axios(options);
+    } else {console.log("there were ZERO old",cms,"records bulk deleted")} 
     })
 }
 
-async function fetchRecords(cms, recordType) {
+async function fetchRecords(cms, recordType, query={}) {
   const options = getAxiosTemplate(cms);
-
-  try {
+  options.data.query = query;
+ 
+  //try {
     const records = await fetchAllRecords(options);
-    console.log(`Fetched ${records.length} ${recordType} records.`);
+    console.log(`Fetched ${records.length} ${recordType} records from ${cms}`);
     return records;
-  } catch (error) {
-    console.error(`Error fetching ${recordType} records:`, error);
-    throw error;
-  }
+
+  // } catch (error) {
+  //   console.error(`Error fetching ${recordType} records:`, error);
+  //   throw error;
+  // }
 }
 
 async function replace(cms, record) {
@@ -173,16 +174,16 @@ async function replace(cms, record) {
     axios(options)
     .then(function (response) {
       if (response.data.dataItems.length== 1){
-        // if (JSON.stringify(response.data.dataItems).includes("What if we let our hearts break for the")){
-        //   console.log("FOUND 1")
-        //   stop();
-        // }
+        if (JSON.stringify(response.data.dataItems).includes("What if we let our hearts break for the")){
+          console.log("FOUND 1")
+          stop();
+        }
 
         response.data.dataItems[0].data = record.data;
         bulkUpdate(cms,response.data.dataItems);
       } else {
-        console.log("Update Request Not Found - hard stop",record.data.title);
-        console.log("returned",response.data.dataItems.length,"records");
+        console.log("Update Request - Hard Stop",record.data.title,cms);
+        console.log(response.data.dataItems.length,"records found, but can only update one.");
         console.log("- - - - - - - - - - - - - - - - - -\n");
 
         stop();
@@ -196,16 +197,6 @@ async function replace(cms, record) {
 }
 
 
-
-
-async function getEvents() {
-  return fetchRecords(happeningsCMS, 'Event (Happenings)');
-}
-
-async function getRepeaters() {
-  return fetchRecords(repeatersCMS, 'Repeater (Events)');
-}
-
 function pretty(s){return JSON.stringify(s,null,2)}
 function stop(){process.exit(0)}
-module.exports = {updateMenu, getAxiosTemplate, fetchAllRecords, bulkInsert, bulkUpdate, bulkDelete, fetchRecords, getEvents, getRepeaters, replace}
+module.exports = {updateMenu, getAxiosTemplate, fetchAllRecords, bulkInsert, bulkUpdate, bulkDelete, fetchRecords, replace}

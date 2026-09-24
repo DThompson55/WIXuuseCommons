@@ -1,0 +1,1144 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"rich",
+				"richcontent"
+			],
+			[
+				"eBlastA",
+				"eBlastArticleDate"
+			],
+			[
+				"blo",
+				"blogQueryOptions"
+			],
+			[
+				"ex",
+				"extractedDate"
+			],
+			[
+				"date",
+				"dateExtracted"
+			],
+			[
+				"new",
+				"newsLetterCMS"
+			],
+			[
+				"rep",
+				"repeatersCMS"
+			],
+			[
+				"init",
+				"initAppendments"
+			],
+			[
+				"ar",
+				"arrangedLine"
+			],
+			[
+				"newEven",
+				"newEventCount"
+			],
+			[
+				"first",
+				"firstServiceFound"
+			],
+			[
+				"node",
+				"nodeCount"
+			],
+			[
+				"song",
+				"songLine"
+			],
+			[
+				"overlay",
+				"overlayGuid"
+			],
+			[
+				"p",
+				"parsedInput"
+			],
+			[
+				"get",
+				"getUsedCameraShotNumbers"
+			],
+			[
+				"keyTo",
+				"keyToIndex"
+			],
+			[
+				"stri",
+				"stripQuotes"
+			],
+			[
+				"cont",
+				"containsMixBus5"
+			],
+			[
+				"ke",
+				"keyToIndex"
+			],
+			[
+				"m",
+				"matrixPositions"
+			],
+			[
+				"Bu",
+				"BusMaster"
+			],
+			[
+				"i",
+				"ignoreScrape"
+			],
+			[
+				"re",
+				"redFlagInputs"
+			],
+			[
+				"inpu",
+				"inputNumber"
+			],
+			[
+				"redF",
+				"redFlagInputs"
+			],
+			[
+				"in",
+				"inputNumber"
+			],
+			[
+				"has",
+				"hasAudioLayer"
+			],
+			[
+				"isAl",
+				"isAllowedName"
+			],
+			[
+				"all",
+				"allowedToSkipTrigger"
+			],
+			[
+				"current",
+				"currentRow"
+			],
+			[
+				"check",
+				"checkOddEvenCameraNumbers"
+			],
+			[
+				"v",
+				"vMixHelper"
+			],
+			[
+				"BUS",
+				"BusMaster"
+			],
+			[
+				"tar",
+				"targetCategory"
+			],
+			[
+				"over",
+				"overlayMap"
+			],
+			[
+				"tr",
+				"triggersXML"
+			],
+			[
+				"for",
+				"forEach"
+			],
+			[
+				"bounce",
+				"bounceTime1"
+			],
+			[
+				"sho",
+				"reaper.ShowConsoleMsg"
+			],
+			[
+				"ser",
+				"serviceTitle"
+			],
+			[
+				"de",
+				"dehydrate"
+			],
+			[
+				"to",
+				"toUpperCase"
+			],
+			[
+				"book",
+				"book_link"
+			],
+			[
+				"un",
+				"uniqueAttributionString"
+			],
+			[
+				"attribution",
+				"attribution_keySet"
+			],
+			[
+				"att",
+				"attributions"
+			],
+			[
+				"atti",
+				"attribution_matchSet"
+			],
+			[
+				"a",
+				"attribution"
+			],
+			[
+				"update",
+				"updateBackButton"
+			],
+			[
+				"pre",
+				"previousParagraphNodes"
+			],
+			[
+				"richcon",
+				"richcontentR"
+			],
+			[
+				"b",
+				"blogChanged"
+			],
+			[
+				"iner",
+				"internalBlogID"
+			],
+			[
+				"refer",
+				"referencedItemId"
+			],
+			[
+				"ref",
+				"referringItemFieldName"
+			],
+			[
+				"serv",
+				"serviceUpdateOptions"
+			],
+			[
+				"servi",
+				"serviceUpdateOptions"
+			],
+			[
+				"updat",
+				"serviceUpdateOptions"
+			],
+			[
+				"serviceU",
+				"serviceQueryOptions"
+			],
+			[
+				"sermon",
+				"sermonCategoryID"
+			],
+			[
+				"oos",
+				"oosCategoryID"
+			],
+			[
+				"categori",
+				"categoryIds"
+			],
+			[
+				"getS",
+				"getService"
+			],
+			[
+				"ri",
+				"richcontentR"
+			],
+			[
+				"fon",
+				"fontWeightValue"
+			],
+			[
+				"l",
+				"length"
+			],
+			[
+				"te",
+				"textData"
+			],
+			[
+				"me",
+				"metaNewsletter"
+			],
+			[
+				"r",
+				"richcontent"
+			],
+			[
+				"meta",
+				"metaEBlast"
+			],
+			[
+				"e",
+				"eBlastArticle"
+			],
+			[
+				"the",
+				"the_BlogPost_ID"
+			],
+			[
+				"con",
+				"consolidatedArticles"
+			],
+			[
+				"s",
+				"separator"
+			],
+			[
+				"consol",
+				"consolidatedArticles"
+			],
+			[
+				"sp",
+				"splitByTableMarker"
+			],
+			[
+				"conso",
+				"consolidatedArticles"
+			],
+			[
+				"style",
+				"styleProperties"
+			],
+			[
+				"pr",
+				"processedNodes"
+			],
+			[
+				"no",
+				"nodeNum"
+			],
+			[
+				"art",
+				"article"
+			],
+			[
+				"format",
+				"cmsFormat"
+			],
+			[
+				"service",
+				"serviceContents"
+			],
+			[
+				"servic",
+				"serviceDate"
+			],
+			[
+				"fu",
+				"futureDate"
+			],
+			[
+				"getg",
+				"getGeneratedDescriptionFromArticle"
+			],
+			[
+				"event",
+				"eventDateMap"
+			],
+			[
+				"eve",
+				"eventDateMap"
+			],
+			[
+				"fil",
+				"filteredArticle"
+			],
+			[
+				"met",
+				"metaEBlast"
+			],
+			[
+				"news",
+				"newsLetterCMS"
+			],
+			[
+				"updated",
+				"updatedEvents"
+			],
+			[
+				"form",
+				"formatDateToYYYYMMDD"
+			],
+			[
+				"email",
+				"emailSentDate"
+			],
+			[
+				"up",
+				"updatedEvents"
+			],
+			[
+				"exp",
+				"isExpired"
+			],
+			[
+				"is",
+				"isEarlierThanToday"
+			],
+			[
+				"articles",
+				"getArticlesFromHTML"
+			],
+			[
+				"bulk",
+				"bulkInsert"
+			],
+			[
+				"low",
+				"toLowerCase"
+			],
+			[
+				"gen",
+				"generateRandomId"
+			],
+			[
+				"find",
+				"findGoodStuff"
+			],
+			[
+				"search",
+				"searchResponse"
+			],
+			[
+				"sear",
+				"searchResponse"
+			],
+			[
+				"lo",
+				"longString"
+			],
+			[
+				"forma",
+				"formattedDateString"
+			],
+			[
+				"old",
+				"old_style"
+			],
+			[
+				"h",
+				"htmlToRichContent"
+			],
+			[
+				"sta",
+				"startsWithDay"
+			],
+			[
+				"cat",
+				"categorizeFiles"
+			],
+			[
+				"New",
+				"NewsLetterContents"
+			],
+			[
+				"Im",
+				"Import853"
+			],
+			[
+				"my",
+				"my_forumContext"
+			],
+			[
+				"getComments",
+				"getCommentsByContext"
+			],
+			[
+				"getCom",
+				"getCommentCount"
+			],
+			[
+				"textD",
+				"textDepth"
+			],
+			[
+				"mat",
+				"matchPart"
+			],
+			[
+				"as",
+				"associatedText"
+			],
+			[
+				"updateS",
+				"updateSundays"
+			],
+			[
+				"gene",
+				"generateRandomId"
+			],
+			[
+				"parse",
+				"parsenewsLetterHTML"
+			],
+			[
+				"par",
+				"parentStyle"
+			],
+			[
+				"child",
+				"childContent"
+			],
+			[
+				"emailSentDate_",
+				"emailSentDate_mm_dd2"
+			],
+			[
+				"dateo",
+				"dateObjects"
+			],
+			[
+				"dataI",
+				"dataItemIds"
+			],
+			[
+				"you",
+				"youtubeUrl"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/htmlToRichContent.js",
+			"settings":
+			{
+				"buffer_size": 15102,
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+			]
+		},
+		{
+			"file": "src/API_Endpoints.js",
+			"settings":
+			{
+				"buffer_size": 5894,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/appendments.js",
+			"settings":
+			{
+				"buffer_size": 2164,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/utils.js",
+			"settings":
+			{
+				"buffer_size": 3845,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/gmail_3.js",
+			"settings":
+			{
+				"buffer_size": 5009,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/index.js",
+			"settings":
+			{
+				"buffer_size": 1769,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"control",
+				"Package Control: List Packages"
+			],
+			[
+				"contro",
+				"Package Control: Install Package"
+			],
+			[
+				"hex",
+				"HexViewer: Toggle Hex View"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"compare",
+				"Compare with..."
+			],
+			[
+				"print",
+				"Package Control: Install Package"
+			],
+			[
+				"insall",
+				"Package Control: Install Package"
+			],
+			[
+				"json",
+				"Pretty JSON: Format JSON"
+			],
+			[
+				"josn",
+				"Pretty JSON: Format JSON Lines"
+			],
+			[
+				"pretty j",
+				"Pretty JSON: Format JSON"
+			],
+			[
+				"markdow",
+				"Set Syntax: Markdown"
+			],
+			[
+				"format",
+				"Pretty JSON: Format JSON"
+			],
+			[
+				"pretty json",
+				"Pretty JSON: Format JSON"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format JSON Lines"
+			],
+			[
+				"cod",
+				"Code Folding: Fold"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"pakcage",
+				"Install Package Control"
+			],
+			[
+				"ReaSyntax",
+				"Plugin Development: Convert Syntax to .sublime-syntax"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 214.0,
+		"history":
+		[
+			"clear"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/danielthompson/Projects/uuseCommons"
+	],
+	"file_history":
+	[
+		"/Users/danielthompson/Projects/NewsLetterScrape/src/good rich content.js",
+		"/Users/danielthompson/Projects/NewsLetterScrape/src/bad rich content.js",
+		"/Users/danielthompson/Projects/NewsLetterScrape/src/index.js",
+		"/Users/danielthompson/Downloads/1. Event Details",
+		"/Users/danielthompson/Downloads/Spanish/counting.txt",
+		"/Users/danielthompson/Downloads/Spanish/verbs that need A.txt",
+		"/Users/danielthompson/Downloads/Spanish/verbs that need CON.txt",
+		"/Users/danielthompson/Downloads/Spanish/Accents on words.txt",
+		"/Users/danielthompson/Downloads/Spanish/spanish words.txt",
+		"/Users/danielthompson/Downloads/Spanish/spanish verbs.txt",
+		"/Users/danielthompson/Projects/eBlastScrape/eBlastScrape.sublime-workspace",
+		"/Users/danielthompson/Downloads/Spanish/Prompts/We are practicing Spanish at an advanced intermedi.txt",
+		"/Users/danielthompson/Downloads/Spanish/Prompts/claude settings.txt",
+		"/Users/danielthompson/Downloads/Spanish/Prompts/prompt 6-3.txt",
+		"/Users/danielthompson/Downloads/Spanish/Prompts/prompt 5-24.txt",
+		"/Users/danielthompson/Downloads/Spanish/spanish verbs pre June 11 2026.txt",
+		"/Users/danielthompson/Downloads/arts commission members 2026.txt",
+		"/Users/danielthompson/Downloads/Spanish/Paper&Pencil.txt",
+		"/Users/danielthompson/Downloads/Spanish/mistakes.txt",
+		"/Users/danielthompson/Downloads/Spanish/books.txt",
+		"/Users/danielthompson/Downloads/Spanish/expressions.txt",
+		"/Users/danielthompson/Downloads/Spanish/double LL verbs.txt",
+		"/Users/danielthompson/Downloads/Spanish/Things to focus on.txt",
+		"/Users/danielthompson/Downloads/Spanish/The Story So Far/# Rodrigo el Conejo.txt",
+		"/Users/danielthompson/Downloads/Spanish/La Piedra de Ámbar.txt",
+		"/Users/danielthompson/Downloads/Spanish/el sapo.txt",
+		"/Users/danielthompson/Downloads/Spanish/claude settings.txt",
+		"/Users/danielthompson/Downloads/5:31:26.txt",
+		"/Users/danielthompson/Downloads/Spanish/prompt 5-24.txt",
+		"/Users/danielthompson/Downloads/Spanish/Claude Prompt.txt",
+		"/Users/danielthompson/Downloads/Spanish/The Story So Far/story 3.txt",
+		"/Users/danielthompson/Downloads/Spanish/updated prompt",
+		"/Users/danielthompson/Downloads/Spanish/The Story So Far/«Antonio», le dijo Julia al anciano, «si tan solo.txt",
+		"/Users/danielthompson/Downloads/Spanish/impoersonal Hay.txt",
+		"/Users/danielthompson/Downloads/ALL IS NOT LOST - OK GO.txt",
+		"/Users/danielthompson/Downloads/Howard.txt",
+		"/Users/danielthompson/Downloads/Spanish/P&P.txt",
+		"/Users/danielthompson/Downloads/Spanish/Imperfect as future in the past.txt",
+		"/Users/danielthompson/Downloads/Spanish/subjunctive.txt",
+		"/Users/danielthompson/Downloads/Spanish/The Story So Far/La Llave.txt",
+		"/Users/danielthompson/Downloads/Spanish/The Story So Far/transcript.txt",
+		"/Users/danielthompson/Downloads/Spanish/The Story So Far/edited transcript.txt",
+		"/Users/danielthompson/Downloads/Spanish/Irregular Imperative.txt",
+		"/Users/danielthompson/Downloads/Spanish/Irregular future and conditional.txt",
+		"/Users/danielthompson/Downloads/Spanish/story 3",
+		"/Users/danielthompson/Downloads/Music Comittee Question.txt",
+		"/Users/danielthompson/Downloads/Spanish/irregular imperfect.txt",
+		"/Users/danielthompson/Downloads/Spanish/irregular preterites.txt",
+		"/Users/danielthompson/Downloads/Spanish/verbs that need DE.txt",
+		"/Users/danielthompson/Downloads/Spanish/Spanish subjunctive.txt",
+		"/Users/danielthompson/Downloads/Spanish/DESDE HACE LLEVAR.txt",
+		"/Users/danielthompson/Downloads/‘I’m Going Home’ – Cork Sacred Harp Singers.txt",
+		"/Users/danielthompson/Downloads/Spanish/La Llave.txt",
+		"/Users/danielthompson/Downloads/Spanish/habits",
+		"/Users/danielthompson/Downloads/Spanish/spanish verbs wiht vosotros.txt",
+		"/Users/danielthompson/Downloads/Poet Laureate Stuff.txt",
+		"/Users/danielthompson/Downloads/Spanish/transcript.txt",
+		"/Users/danielthompson/Downloads/Spanish/untitled.sublime-project",
+		"/Users/danielthompson/Downloads/spanish words.txt",
+		"/Users/danielthompson/Downloads/verbs that neeed DE.txt",
+		"/Users/danielthompson/Downloads/spanish verbs.txt",
+		"/Users/danielthompson/Downloads/Claude Prompt.txt",
+		"/Users/danielthompson/Downloads/Por - Para.txt",
+		"/Users/danielthompson/Downloads/Spanish subjunctive.txt",
+		"/Users/danielthompson/Downloads/verbs that need A.txt",
+		"/Users/danielthompson/Downloads/use FFMPEG to convert to GIF.txt",
+		"/Users/danielthompson/Downloads/lkjlkjl.txt",
+		"/Users/danielthompson/Downloads/brew logs.txt",
+		"/Users/danielthompson/Downloads/Spanish subjunctive",
+		"/Users/danielthompson/Downloads/irregular preterites",
+		"/Users/danielthompson/Downloads/spanish verbs",
+		"/Users/danielthompson/Downloads/spanish words",
+		"/Users/danielthompson/Downloads/verbs that need A",
+		"/Users/danielthompson/Downloads/verbs that neeed DE",
+		"/Users/danielthompson/Downloads/Por - Para",
+		"/Users/danielthompson/Downloads/Claude Prompt",
+		"/Users/danielthompson/Downloads/Accents on words",
+		"/Users/danielthompson/Pictures/Sophia's story",
+		"/Users/danielthompson/Downloads/Reference Tracks",
+		"/Users/danielthompson/Downloads/WIX Stuff",
+		"/Users/danielthompson/Downloads/strange spanish verbs",
+		"/Users/danielthompson/Downloads/past participles",
+		"/Users/danielthompson/Downloads/Elizabeth Thomas",
+		"/Users/danielthompson/Downloads/irregular imperfect",
+		"/Users/danielthompson/Downloads/Irregular future and conditional",
+		"/Users/danielthompson/Downloads/Irregular Imperative",
+		"/Users/danielthompson/Downloads/level 4 piano pices",
+		"/Users/danielthompson/Projects/uuseCommons/src/redact.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/htmlToRichContent.js",
+		"/Users/danielthompson/Downloads/UUSE Music Committee Report Draft",
+		"/Users/danielthompson/Downloads/phrases",
+		"/Users/danielthompson/Projects/CCLI Report/src/index.js",
+		"/Users/danielthompson/Downloads/Let There Be Music!",
+		"/Users/danielthompson/Projects/eBlastScrape/src/index.js",
+		"/Users/danielthompson/Downloads/duolingo spanish vocal",
+		"/Users/danielthompson/Downloads/stella Blue",
+		"/Users/danielthompson/Downloads/Black Peter Chords by Grateful Dead A7",
+		"/Users/danielthompson/Downloads/Jazz Standards to Study",
+		"/Users/danielthompson/Downloads/Spanish Verbs",
+		"/Users/danielthompson/Projects/Cymatics/src/index.js",
+		"/Users/danielthompson/Downloads/Little Pictures",
+		"/Users/danielthompson/Downloads/Healing Singing Bowls & Gongs Sound Bath",
+		"/Users/danielthompson/Downloads/website notes",
+		"/Users/danielthompson/Downloads/claude path",
+		"/Users/danielthompson/Downloads/scan optics contact phone numbers",
+		"/Users/danielthompson/Downloads/Going to the Country Notes.txt",
+		"/Users/danielthompson/Downloads/Danny's Passwords",
+		"/Users/danielthompson/Downloads/Level 2 Piano Pieces.txt",
+		"/Users/danielthompson/Projects/Emmy Scrape/src/index.js",
+		"/Users/danielthompson/Library/Application Support/REAPER/Effects/Dtt/2 band mixer.js",
+		"/Users/danielthompson/Downloads/Piano Pieces/After learning Bach's Prelude in C Major, focusing.txt",
+		"/Users/danielthompson/Projects/uuseCommons/src/appendments.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/utils.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/TitleUtils.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/API_Endpoints.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/tester.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/style mappings.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/secrets.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/CC_utils.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/DateUtils.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/gmail_3.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/google-stuff.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/index.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/RichContentUtils-new.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/RichContentUtils.js",
+		"/Users/danielthompson/Projects/uuseCommons/src/{",
+		"/Users/danielthompson/Projects/OSC/index.js",
+		"/Users/danielthompson/Downloads/bad rich content.js"
+	],
+	"find":
+	{
+		"height": 50.0
+	},
+	"find_in_files":
+	{
+		"height": 163.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"date",
+			"dtt"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/htmlToRichContent.js",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15102,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2162,
+								2162
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1478.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/API_Endpoints.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/appendments.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2164,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 1.0,
+						"translation.y": 351.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/utils.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3845,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/gmail_3.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5009,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1769,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 38.0
+	},
+	"input":
+	{
+		"height": 57.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 196.0,
+		"history":
+		[
+		]
+	},
+	"output.hex_viewer_inspector":
+	{
+		"height": 196.0,
+		"history":
+		[
+		]
+	},
+	"pinned_build_system": "",
+	"project": "commons.sublime-project",
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"Dough:"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 288.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 592.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 129.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
